@@ -1,0 +1,20 @@
+  <tr>
+    <td>
+      <%= '--' * index_item.ancestors.count %><%= '|' unless index_item.ancestors.empty? %>
+      <%= index_item.name %>
+    </td>
+    <td><%= index_item.title %></td>
+    <td><%= index_item.body %></td>
+    <td><%= index_item.parent_id %></td>
+    <td>
+      <%= index_item.position %>
+      <%= link_to 'Up', higher_page_path(index_item), :method => :put %>
+      <%= link_to 'Dn', lower_page_path(index_item), :method => :put %>
+    </td>
+    <td><%= link_to 'Show', page_path(index_item)%></td>
+    <td><%= link_to 'Edit', edit_page_path(index_item) %></td>
+    <td><%= link_to 'Destroy', page_path(index_item), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+  <% unless index_item.children.empty? %>
+    <%= render(:partial => "index_item", :collection => index_item.children) %>
+  <% end %>

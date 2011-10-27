@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microcms</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul id="nav">
+  <% for page in Page.roots %>
+    <li><%= link_to h(page.name.titleize), page_url(:id => page.name) %></li>
+  <% end %>
+</ul>
+<%= yield %>
+
+</body>
+</html>

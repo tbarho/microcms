@@ -1,0 +1,21 @@
+<h1>Listing pages</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Parent</th>
+    <th>Position</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <%= render :partial => "index_item", :collection => @pages %>
+</table>
+
+<br />
+
+<%= link_to 'New Page', new_page_path %>
