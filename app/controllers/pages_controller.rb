@@ -107,4 +107,12 @@ class PagesController < ApplicationController
     end
     redirect_to pages_url 
   end
+
+  def mercury_update
+    page = Page.find(params[:id])
+    page.title = params[:content][:page_name][:value]
+    page.body = params[:content][:page_content][:value]
+    page.save!
+    render text: ""
+  end
 end

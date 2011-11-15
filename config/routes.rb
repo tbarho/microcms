@@ -1,9 +1,12 @@
 Microcms::Application.routes.draw do
+  Mercury::Engine.routes
+
   resources :pages do
     member do
       put 'higher'
       put 'lower'
     end
+    member { post :mercury_update }
   end
 
   match "/:id" => "pages#show"
